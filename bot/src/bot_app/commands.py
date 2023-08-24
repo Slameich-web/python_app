@@ -12,4 +12,5 @@ async def issues_click(message):
     
 @dp.callback_query_handler(text='resources')
 async def issues_click(message): 
-    await message.message.answer("@TELEGRAM")
+    await message.message.answer("ссылка на ресурсы компании: (уточнить ссылки).")
+    
