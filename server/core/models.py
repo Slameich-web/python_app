@@ -1,23 +1,18 @@
+from django.contrib.auth.base_user import AbstractBaseUser
+from django.contrib.auth.models import Group
 from django.db import models
-from django.urls import reverse
+
 
 class User(models.Model):
     telegram_ID = models.CharField(max_length=16)
     firstname = models.CharField(max_length=64)
     lastname = models.CharField(max_length=64)
     middlename = models.CharField(max_length=64)
-    city = models.CharField(max_length=64)
+    city = models.ForeignKey(to='city.City', on_delete=models.SET_NULL, null=True, verbose_name='Город')
     role = models.CharField(max_length=64)
 
     def __str__(self):
         return self.firstname
-
-
-class Platform(models.Model):
-    title = models.CharField(max_length=128)
-    
-    def __str__(self):
-        return self.title
 
 class Product(models.Model):
     title = models.CharField(max_length=128)

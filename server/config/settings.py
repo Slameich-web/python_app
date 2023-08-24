@@ -59,6 +59,12 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     'core',
+    #'users',
+    'city',
+    'distribution_platform',
+    #'income',
+    #'mailing',
+    #'product',
 ]
 
 DJANGO_MIDDLEWARE = [
