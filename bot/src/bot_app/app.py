@@ -1,5 +1,3 @@
-
-
 from aiogram import Bot, Dispatcher, executor
 from bot_app.env import API_KEY
 

@@ -1,15 +1,22 @@
-import "./App.css";
-let tg = window.Telegram.WebApp;
-tg.expand(); //расширяем на все окно
+import React from "react";
+import Login from "./pages/login/Login";
+import { Routes, Route, Link } from "react-router-dom";
+import "./App.scss";
+import Register from "./pages/register/Register";
 
-tg.MainButton.text = "Changed Text"; //изменяем текст кнопки
-tg.MainButton.setText("Changed Text1"); //изменяем текст кнопки иначе
-tg.MainButton.textColor = "#F55353"; //изменяем цвет текста кнопки
-tg.MainButton.color = "#143F6B"; //изменяем цвет бэкграунда кнопки
-tg.MainButton.setParams({ color: "#143F6B" }); //так изменяются все параметры
-
-function App() {
-  return <div className="App">asd</div>;
-}
+const App = () => {
+  return (
+    <>
+      <Link to="/">Home</Link>
+      <Link to="/login">login</Link>
+      <Link to="/register">register</Link>
+      <Routes>
+        <Route path="/" element={<div />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </>
+  );
+};
 
 export default App;
