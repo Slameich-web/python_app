@@ -3,7 +3,7 @@ import axios from "axios";
 import "../../App.scss";
 import { useNavigate } from "react-router-dom";
 
-const Register = () => {
+export const Register = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -66,5 +66,3 @@ const Register = () => {
     </div>
   );
 };
-
-export default Register;
