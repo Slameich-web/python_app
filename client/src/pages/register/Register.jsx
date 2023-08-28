@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { $api } from "../../http/index";
+import axios from "axios";
 import "../../App.scss";
 import { useNavigate } from "react-router-dom";
 
-export const Register = () => {
+const Register = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -14,17 +14,16 @@ export const Register = () => {
 
   const registerRequest = async () => {
     try {
-      await $api.post("/api/register", {
+      await axios.post("http://127.0.0.1:8000/api/register", {
         email: email,
         password: password,
-        telegram_id: 5421,
+        telegram_id: 542,
       });
       setIsEedirect(true);
     } catch (e) {
-      setError(e?.response?.data?.message);
+      setError(e.response.data.message);
     }
   };
-
   useEffect(() => {
     if (isRedirect) {
       return navigate("/login");
@@ -34,7 +33,12 @@ export const Register = () => {
   return (
     <div className="auth_wrapper">
       <div className="auth_container">
-        <form className="input_container">
+        <form
+          className="input_container"
+          method="POST"
+          autoComplete="off"
+          action="users/id"
+        >
           <input
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
@@ -53,6 +57,7 @@ export const Register = () => {
             onChange={() => setShowPassword((prev) => !prev)}
           />
         </div>
+        <a href="https://ya.ru/">Забыли пароль?</a>
         <button onClick={registerRequest} className="login_button">
           Регистрация
         </button>
@@ -61,3 +66,5 @@ export const Register = () => {
     </div>
   );
 };
+
+export default Register;

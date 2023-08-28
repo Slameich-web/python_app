@@ -4,7 +4,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useTransition } from "@react-spring/web";
 import { animated } from "@react-spring/web";
 import { Link } from "react-router-dom";
-
 export const Revenue = () => {
   const [showNavbar, setShowNavbar] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -59,7 +58,7 @@ export const Revenue = () => {
           ""
         )
       )}
-      <div className="nav_container">
+      <div className="rev_nav_container">
         <div className="drop_down">
           <span style={{ marginTop: "1%", flex: "0 0 51%" }}>Доходность</span>
           <div
@@ -120,12 +119,6 @@ export const Revenue = () => {
                 <td>1800 ₽</td>
                 <td>1800 ₽</td>
               </tr>
-              <tr>
-                <td>Продукт 4</td>
-                <td>1800 ₽</td>
-                <td>1800 ₽</td>
-                <td>1800 ₽</td>
-              </tr>
             </tbody>
           </table>
         </div>
@@ -153,6 +146,42 @@ export const Revenue = () => {
               </tr>
               <tr>
                 <td>Продукт 4</td>
+                <td>1800 ₽</td>
+                <td>1800 ₽</td>
+                <td>1800 ₽</td>
+              </tr>
+              <tr>
+                <td>Продукт 4</td>
+                <td>1800 ₽</td>
+                <td>1800 ₽</td>
+                <td>1800 ₽</td>
+              </tr>
+              <tr>
+                <td>Продукт 5</td>
+                <td>1800 ₽</td>
+                <td>1800 ₽</td>
+                <td>1800 ₽</td>
+              </tr>
+              <tr>
+                <td>Продукт 6</td>
+                <td>1800 ₽</td>
+                <td>1800 ₽</td>
+                <td>1800 ₽</td>
+              </tr>
+              <tr>
+                <td>Продукт 7</td>
+                <td>1800 ₽</td>
+                <td>1800 ₽</td>
+                <td>1800 ₽</td>
+              </tr>
+              <tr>
+                <td>Продукт 8</td>
+                <td>1800 ₽</td>
+                <td>1800 ₽</td>
+                <td>1800 ₽</td>
+              </tr>
+              <tr>
+                <td>Продукт 9</td>
                 <td>1800 ₽</td>
                 <td>1800 ₽</td>
                 <td>1800 ₽</td>

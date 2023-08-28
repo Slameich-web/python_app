@@ -4,8 +4,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useTransition } from "@react-spring/web";
 import { animated } from "@react-spring/web";
 import { Link } from "react-router-dom";
-import "../../App.scss";
-
 export const Checkouts = () => {
   const [showNavbar, setShowNavbar] = useState(false);
   const transition = useTransition(showNavbar, {
@@ -13,11 +11,12 @@ export const Checkouts = () => {
     enter: { x: 0, y: 0, opacity: 1 },
     leave: { x: 100, y: 100, opacity: 0 },
   });
+
   return (
-    <div className="revenue_wrapper">
-      <div className="nav_container">
+    <div className="checkouts_wrapper">
+      <div className="checkouts_nav_container">
         <div className="drop_down">
-          <span style={{ marginTop: "1%", flex: "0 0 53%" }}>
+          <span style={{ marginTop: "1%", flex: "0 0 54%" }}>
             Запросы на выплату
           </span>
           <div
@@ -33,12 +32,12 @@ export const Checkouts = () => {
         </div>
         {transition((style, item) =>
           item ? (
-            <animated.div style={style} className="rev_buttons">
+            <animated.div style={style} className="checkouts_buttons">
               <Link
                 to={"/revenue"}
                 style={{
                   width: "100%",
-                  height: "100%",
+                  height: "60%",
                   display: "flex",
                   justifyContent: "center",
                   textDecoration: "none",
@@ -54,7 +53,7 @@ export const Checkouts = () => {
         )}
       </div>
       <div className="revenue_container">
-        <div style={{ width: "100%", height: "100%" }}>
+        <div style={{ width: "100%", height: "50%" }}>
           <table border="2" className="checkouts_table">
             <tbody>
               <tr>

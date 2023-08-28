@@ -71,7 +71,9 @@ export const Home = () => {
                 </animated.button>
               </Link>
             </animated.div>
-          ) : undefined
+          ) : (
+            ""
+          )
         )}
       </div>
     </div>

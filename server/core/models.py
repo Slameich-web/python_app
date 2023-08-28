@@ -20,3 +20,13 @@ class TelegramMedia(models.Model):
     class Meta:
         verbose_name = 'Вложение'
         verbose_name_plural = 'Вложения'
+        
+class BotSettings(models.Model):
+    start_message = models.TextField(max_length=4096, verbose_name='Стартовое сообщение')
+
+    def __str__(self):
+        return f'Настройки Telegram бота'
+
+    class Meta:
+        verbose_name = 'Настройки Telegram бота'
+        verbose_name_plural = 'Настройки Telegram бота'

@@ -3,7 +3,11 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import serializers
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework import mixins, viewsets, views
+from rest_framework.response import Response
 
+from core.models import BotSettings, TelegramMedia
+from core.serializers import BotSettingsSerializer, TelegramMediaSerializer
 from users.models import User
 from income.models import Income
 
@@ -31,9 +35,28 @@ class UserApiView(APIView):
         lst = User.objects.all().values()
         return Response({'title': list(lst)})
     
-class SumApiView(APIView):
-    permission_classes = (IsAuthenticatedOrReadOnly)
+class BotSettingsView(
+    views.APIView,
+):
+    def get_object(self):
+        return BotSettings.objects.last()
+
     def get(self, request):
-        lst = Income.objects.all().values()
-        print(request)
-        return Response({'title': IncomeSerializer(lst, many=True).data})
+        settings = self.get_object()
+
+        settings_serializer = BotSettingsSerializer(settings)
+
+        return Response(settings_serializer.data)
+
+
+class UpdateTelegramMediaView(
+    mixins.UpdateModelMixin,
+    viewsets.GenericViewSet,
+):
+    serializer_class = TelegramMediaSerializer
+
+    def get_queryset(self):
+        return TelegramMedia.objects.all()
+
+    def partial_update(self, request, *args, **kwargs):
+        return super().partial_update(request, *args, **kwargs)
