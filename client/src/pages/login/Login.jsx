@@ -33,7 +33,7 @@ export const Login = () => {
   return (
     <div className="auth_wrapper">
       <div className="auth_container">
-        <form>
+        <form className="input_container">
           <input
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
