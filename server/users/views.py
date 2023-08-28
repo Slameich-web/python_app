@@ -70,3 +70,8 @@ class LogoutView(APIView):
             'message': 'success'
         }
         return response
+    
+class GetAllUsers(APIView):
+    def get(self, request):
+        user = User.objects.all()
+        return Response({'users': UserSerializer(user, many=True).data})
