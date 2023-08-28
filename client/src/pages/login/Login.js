@@ -1,34 +1,39 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { $api } from "../../http/index";
 import "../../App.scss";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
+  const [isRedirect, setIsEedirect] = useState(false);
+
   const isShowPassword = showPassword ? "text" : "password";
+  const navigate = useNavigate();
 
   const loginRequest = async () => {
     try {
-      await axios.post("http://127.0.0.1:8000/api/login", {
+      await $api.post("/api/login", {
         email: email,
         password: password,
       });
+      setIsEedirect(true);
     } catch (e) {
-      setError(e.response.data.message);
+      setError(e?.response?.data?.message);
     }
   };
+  useEffect(() => {
+    if (isRedirect) {
+      return navigate("/home");
+    }
+  }, [isRedirect, navigate]);
 
   return (
     <div className="auth_wrapper">
       <div className="auth_container">
-        <form
-          className="input_container"
-          method="POST"
-          autoComplete="off"
-          action="users/id"
-        >
+        <form>
           <input
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
@@ -46,7 +51,6 @@ const Login = () => {
             onChange={() => setShowPassword((prev) => !prev)}
           />
         </div>
-        <a href="https://ya.ru/">Забыли пароль?</a>
         <button onClick={loginRequest} className="login_button">
           Войти
         </button>

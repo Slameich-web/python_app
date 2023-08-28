@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { $api } from "../../http/index";
 import "../../App.scss";
 import { useNavigate } from "react-router-dom";
 
@@ -14,16 +14,17 @@ const Register = () => {
 
   const registerRequest = async () => {
     try {
-      await axios.post("http://127.0.0.1:8000/api/register", {
+      await $api.post("/api/register", {
         email: email,
         password: password,
-        telegram_id: 542,
+        telegram_id: 5421,
       });
       setIsEedirect(true);
     } catch (e) {
-      setError(e.response.data.message);
+      setError(e?.response?.data?.message);
     }
   };
+
   useEffect(() => {
     if (isRedirect) {
       return navigate("/login");
@@ -33,12 +34,7 @@ const Register = () => {
   return (
     <div className="auth_wrapper">
       <div className="auth_container">
-        <form
-          className="input_container"
-          method="POST"
-          autoComplete="off"
-          action="users/id"
-        >
+        <form>
           <input
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
@@ -57,7 +53,6 @@ const Register = () => {
             onChange={() => setShowPassword((prev) => !prev)}
           />
         </div>
-        <a href="https://ya.ru/">Забыли пароль?</a>
         <button onClick={registerRequest} className="login_button">
           Регистрация
         </button>
