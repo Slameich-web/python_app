@@ -17,6 +17,7 @@ body {
 .auth_wrapper {
   display: flex;
   place-items: center;
+  flex-direction: column;
   justify-content: center;
   height: 700px;
 }
@@ -26,7 +27,7 @@ body {
   flex-direction: column;
   align-items: center;
   height: 80%;
-  width: 80%;
+  width: 75%;
   border: 3px solid var(--tg-theme-button-color);
   a {
     color: var(--tg-theme-link-color);
@@ -69,4 +70,248 @@ body {
 
 .checkbox {
   accent-color: var(--tg-theme-button-color);
+}
+
+.nav_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.buttons {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 40%;
+  align-items: center;
+  margin-top: 2%;
+  justify-content: space-evenly;
+  button {
+    border: 1px solid var(--auth-border-color, transparent);
+    border-radius: var(--auth-border-size, 2px);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+    width: 80%;
+    height: 30%;
+    background-color: var(--tg-theme-button-color);
+    color: var(--tg-theme-button-text-color);
+    outline: none;
+    overflow: hidden;
+    position: block;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+}
+.drop_down {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  background-color: var(--tg-theme-secondary-bg-color);
+  span {
+    flex: 0 0 53%;
+  }
+}
+.drop_down_tile_wrapper {
+  height: 100%;
+  display: flex;
+}
+
+.drop_down_button {
+  cursor: pointer;
+  height: 30%;
+}
+
+.css-i4bv87-MuiSvgIcon-root {
+  color: var(--tg-theme-button-color);
+  path {
+    color: var(--tg-theme-button-color);
+  }
+}
+
+.revenue_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 300px;
+  width: 100%;
+}
+
+.revenue_wrapper {
+  display: flex;
+  place-items: center;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  height: 350px;
+}
+
+.rev_buttons {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+
+  button {
+    border: 1px solid var(--auth-border-color, transparent);
+    border-radius: var(--auth-border-size, 2px);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+    width: 80%;
+    height: 60%;
+    background-color: var(--tg-theme-button-color);
+    color: var(--tg-theme-button-text-color);
+    outline: none;
+    overflow: hidden;
+    position: block;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+}
+.table {
+  width: 100%;
+  border: var(--tg-theme-bg-color);
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+
+  td {
+    text-align: center;
+  }
+  tr:nth-child(1) {
+    background-color: var(--tg-theme-button-color);
+  }
+  td:nth-child(-n + 1) {
+    background-color: var(--tg-theme-button-color);
+  }
+}
+.table_title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: var(--tg-theme-secondary-bg-color);
+}
+
+.check_out_button {
+  border: 1px solid var(--auth-border-color, transparent);
+  border-radius: var(--auth-border-size, 2px);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  width: 100%;
+  position: sticky;
+  height: 40%;
+  background-color: var(--tg-theme-button-color);
+  color: var(--tg-theme-button-text-color);
+  outline: none;
+  overflow: hidden;
+  position: block;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.modal {
+  position: fixed;
+  flex-direction: column;
+
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  opacity: 1;
+  z-index: 2;
+
+  .modal_content {
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 60%;
+    width: 75%;
+    background-color: var(--tg-theme-secondary-bg-color);
+    border-radius: 35px;
+    margin-top: 15%;
+  }
+}
+
+.modal_input {
+  height: 5%;
+  font-weight: 600;
+  border-color: var(--tg-theme-button-color);
+  border-radius: 4px;
+  margin: 10px 0;
+}
+.modal_button_active {
+  border: 1px solid var(--auth-border-color, transparent);
+  border-radius: var(--auth-border-size, 2px);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  width: 60%;
+  height: 10%;
+  background-color: var(--tg-theme-button-color);
+  color: var(--tg-theme-button-text-color);
+  outline: none;
+  overflow: hidden;
+  position: block;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.modal_button_inactive {
+  border: 1px solid var(--auth-border-color, transparent);
+  border-radius: var(--auth-border-size, 2px);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  width: 60%;
+  height: 10%;
+  background-color: rgba(128, 128, 128, 0.63);
+  color: rgb(247, 247, 247);
+  outline: none;
+  overflow: hidden;
+  position: block;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  cursor: default;
+  transition: 0.5s;
+}
+
+.modal_close {
+  display: flex;
+  justify-content: flex-end;
+  width: 80%;
+}
+
+.css-i4bv87-MuiSvgIcon-root {
+  cursor: pointer;
+}
+
+.checkouts_table {
+  width: 100%;
+  border: var(--tg-theme-bg-color);
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+
+  td {
+    text-align: center;
+  }
+  tr:nth-child(1) {
+    background-color: var(--tg-theme-button-color);
+  }
 }
